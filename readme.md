@@ -1,3 +1,5 @@
+<img src="assets/img/image.png" alt="drawing" width="200"/>
+
 # Readme.md
 This is a mysterious russian website that supposed to teach us about art of DevOps.
 It developed by unknown russian developer
