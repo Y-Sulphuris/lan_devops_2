@@ -7,6 +7,7 @@ on:
       - release
 env:
   NAME_VERSION_FILE: version
+  UPDATE_SCRIPT_FILE: .github/workflows/version_update.py
 jobs:
   validate-branch:
     runs-on: ubuntu-latest
@@ -47,11 +48,11 @@ jobs:
         if: |
           contains(steps.parse-data.outputs.current_branch, 'feature')
         run: |
-          python version_update.py minor
+          python ${{env.UPDATE_SCRIPT}} minor
 
       - name: Run patch version update script
         id: update-patch-version
         if: |
           contains(steps.parse-data.outputs.currecint_branch, 'hotfix')
         run: |
-          python version_update.py patch
+          python ${{env.UPDATE_SCRIPT}} patch
