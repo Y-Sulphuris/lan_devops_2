@@ -48,11 +48,11 @@ jobs:
         if: |
           contains(steps.parse-data.outputs.current_branch, 'feature')
         run: |
-          python ${{env.UPDATE_SCRIPT}} minor
+          python ${{env.UPDATE_SCRIPT_FILE}} minor
 
       - name: Run patch version update script
         id: update-patch-version
         if: |
           contains(steps.parse-data.outputs.currecint_branch, 'hotfix')
         run: |
-          python ${{env.UPDATE_SCRIPT}} patch
+          python ${{env.UPDATE_SCRIPT_FILE}} patch
