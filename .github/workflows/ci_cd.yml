@@ -47,11 +47,11 @@ jobs:
         if: |
           contains(steps.parse-data.outputs.current_branch, 'feature')
         run: |
-          python version_up.py minor
+          python version_update.py minor
 
       - name: Run patch version update script
         id: update-patch-version
         if: |
           contains(steps.parse-data.outputs.currecint_branch, 'hotfix')
         run: |
-          python version_up.py patch
+          python version_update.py patch
