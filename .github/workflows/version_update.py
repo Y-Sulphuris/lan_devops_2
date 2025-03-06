@@ -70,4 +70,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()  # to make return avaiable
+    main()  # just to make return avaiable
