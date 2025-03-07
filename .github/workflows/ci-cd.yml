@@ -33,15 +33,11 @@ jobs:
     name: (TST)
     needs: validate-branch
     uses: Y-Sulphuris/lan_devops_2/.github/workflows/test.yml@release
-    with:
-      version: alpha
 
   antivirus:
-    name: (TST)
+    name: Antivirus
     needs: tests-fixme
     uses: Y-Sulphuris/lan_devops_2/.github/workflows/security.yml@release
-    with:
-      version: alpha
 
   run-script:
     runs-on: ubuntu-latest
