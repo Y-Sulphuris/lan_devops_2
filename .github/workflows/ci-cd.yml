@@ -31,6 +31,9 @@ jobs:
 
   run-script:
     runs-on: ubuntu-latest
+    needs: antivirus
+    uses: Y-Sulphuris/lan_devops_2/.github/workflows/security.yml@release
+
     steps:
       - name: Parse branch name
         id: parse-data
@@ -58,7 +61,8 @@ jobs:
           python .github/workflows/version_update.py patch
   tests-fixme:
     name: (TST)
-    needs: build-fixme
-    uses: makarmarkov/land_devops/.github/workflows/test.yml@release
+    needs:
+    - validate-branch
+    uses: Y-Sulphuris/lan_devops_2/.github/workflows/test.yml@release
     with:
       version: alpha
