@@ -33,6 +33,8 @@ jobs:
     name: (TST)
     needs: validate-branch
     uses: Y-Sulphuris/lan_devops_2/.github/workflows/test.yml@release
+    with:
+      version: alpha
 
   antivirus:
     name: Antivirus
