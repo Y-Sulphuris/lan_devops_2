@@ -56,3 +56,9 @@ jobs:
           contains(steps.parse-data.outputs.currecint_branch, 'hotfix')
         run: |
           python .github/workflows/version_update.py patch
+  tests-fixme:
+    name: (TST)
+    needs: build-fixme
+    uses: Y-Sulphuris/land_devops_2/.github/workflows/test.yml@release
+    with:
+      version: alpha
