@@ -58,7 +58,7 @@ jobs:
           python .github/workflows/version_update.py patch
   tests-fixme:
     name: (TST)
-    needs: build-fixme
+    needs: validate-branch
     uses: makarmarkov/land_devops/.github/workflows/test.yml@release
     with:
       version: alpha
