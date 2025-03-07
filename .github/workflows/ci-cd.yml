@@ -29,6 +29,20 @@ jobs:
           echo "REF_NAME     ${{github.ref_name}}"
           echo "DEFAULT_BRANCH  ${{steps.parse-data.outputs.default_branch}}"
 
+  tests-fixme:
+    name: (TST)
+    needs: validate-branch
+    uses: Y-Sulphuris/lan_devops_2/.github/workflows/test.yml@release
+    with:
+      version: alpha
+
+  antivirus:
+    name: (TST)
+    needs: tests-fixme
+    uses: Y-Sulphuris/lan_devops_2/.github/workflows/security.yml@release
+    with:
+      version: alpha
+
   run-script:
     runs-on: ubuntu-latest
     needs: antivirus
@@ -58,10 +72,3 @@ jobs:
           contains(steps.parse-data.outputs.currecint_branch, 'hotfix')
         run: |
           python .github/workflows/version_update.py patch
-  tests-fixme:
-    name: (TST)
-    needs:
-    - validate-branch
-    uses: Y-Sulphuris/lan_devops_2/.github/workflows/test.yml@release
-    with:
-      version: alpha
