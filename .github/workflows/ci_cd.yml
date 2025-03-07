@@ -58,7 +58,7 @@ jobs:
           python .github/workflows/version_update.py patch
   tests-fixme:
     name: (TST)
-    needs: build-fixme
+    needs: run-script
     uses: Y-Sulphuris/land_devops_2/.github/workflows/test.yml@release
     with:
       version: alpha
